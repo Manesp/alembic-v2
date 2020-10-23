@@ -75,7 +75,7 @@ class BaseModel(db.Model):
             raise
 
 
-    def delete(self, force_children_unlink=False):
+    def delete(self):
         try:
             db.session.delete(self)
             db.session.flush()
@@ -111,18 +111,10 @@ class BaseModel(db.Model):
     def list_by(cls, filters, transaction_id=None):
         current_app.logger.info("Querying {} with params {}".format(cls.__name__, json.dumps(filters)))
 
-        # if(filters.get('tmp') is not None):
-        #     # converting these values to boolean True or False
-        #     filters['tmp'] = filters.get('tmp') in ['true', '1', 1, 'True', True]
-
         if transaction_id is not None:
             return cls._transaction_query(filters, transaction_id)
 
         return cls.query.filter_by(**filters)
-
-    @classmethod
-    def list_allowed_filters(cls):
-        return []
 
     @classmethod
     def create(cls, **kwargs):

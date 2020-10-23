@@ -2,7 +2,7 @@ import sqlalchemy
 
 from ..extensions import db
 
-from .cars import Cars
+from . import Cars
 
 
 sqlalchemy.orm.configure_mappers()

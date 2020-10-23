@@ -2,7 +2,7 @@ from . import BaseModel
 from . import db
 
 
-class Role(BaseModel):
+class Cars(BaseModel):
     __versioned__ = {"strategy": "subquery"}
     __tablename__ = "role"
 
