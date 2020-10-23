@@ -1,5 +1,4 @@
 from flask_sqlalchemy import SQLAlchemy
-# from app.helpers.continuum import ManualUnitOfWork, ManualVersioningManager, make_versioned
 from sqlalchemy_continuum import make_versioned
 from sqlalchemy_continuum.plugins import ActivityPlugin
 
